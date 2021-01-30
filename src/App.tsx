@@ -7,7 +7,7 @@ interface States {
   data: any[]
   plan: any[]
   id: number
-  newToken: string
+  newToken: string | null
 }
 
 class App extends React.Component<{}, States> {
@@ -24,15 +24,30 @@ class App extends React.Component<{}, States> {
     localStorage.setItem('token', newToken)
   }
 
+  componentDidMount() {
+    if (localStorage.getItem('token') !== null ) {
+      console.log('setting token')
+      this.setState({id: parseInt(localStorage.getItem('id') as string)})
+      this.setState({newToken: localStorage.getItem('token')})
+    }
+  }
+
+  clearToken = () => {
+    this.setState({newToken: ''})
+    this.setState({id: 0})
+    localStorage.removeItem('id')
+    localStorage.removeItem('token')
+  }
+
   completionData = async () => {
-    let r = await fetch(`http://localhost:8080/completion`)
+    let r = await fetch(`http://localhost:8080/completion/${this.state.id}`)
     let data = await r.json();
     this.setState({ data })
     console.log(data)
 }
 
 planningData = async () => {
-  let r = await fetch(`http://localhost:8080/planning`)
+  let r = await fetch(`http://localhost:8080/planning/${this.state.id}`)
   let plan = await r.json();
   this.setState({ plan })
   console.log(plan)
@@ -41,8 +56,7 @@ planningData = async () => {
   render () {
     return (
       <div>
-        <Navbar data = {this.state.data} plan={this.state.plan} completionData = {this.completionData} planningData = {this.planningData} />
-        <Auth updateToken = {this.updateToken} id = {this.state.id} newToken = {this.state.newToken}/>
+        { !this.state.newToken ? <Auth updateToken = {this.updateToken} id = {this.state.id} newToken = {this.state.newToken}/> : <Navbar data = {this.state.data} plan={this.state.plan} completionData = {this.completionData} planningData = {this.planningData} id = {this.state.id} newToken = {this.state.newToken} clearToken = {this.clearToken} /> }
       </div>
     )
   }

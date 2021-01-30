@@ -1,9 +1,10 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 
 interface AuthProps {
     updateToken: (newToken: string, id: number) => any
     id: number
-    newToken: string
+    newToken: string | null
 }
 
 interface States {
@@ -88,8 +89,8 @@ class Auth extends React.Component <AuthProps, States> {
                 <br/>
                 {this.signupFields()}
                 <br/>
-                <button onClick={this.loginToggle}>{this.state.login ? 'Click Here to Register' : 'Click Here to Login'}</button>
-                <button onClick={this.handleSubmit}>Submit</button>
+                <Button onClick={this.loginToggle}>{this.state.login ? 'Click Here to Register' : 'Click Here to Login'}</Button>
+                <Button onClick={this.handleSubmit}>Submit</Button>
             </form>
         )
     }
