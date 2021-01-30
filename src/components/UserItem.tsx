@@ -3,6 +3,10 @@ import React from 'react';
 import { Card, CardText, CardBody, CardTitle, CardSubtitle, Button, Row, Col } from 'reactstrap';
 import CompletionDelete from './CompletionDelete';
 
+//child of Navbar
+
+//children: CompletionDelete
+
 interface UserItemProps {
     data: any
     completionData: () => any
@@ -24,10 +28,20 @@ class UserItem extends React.Component <UserItemProps, {}> {
         <div>
             <Card>
                 <CardBody>
-                    <CardTitle>{this.props.data.movieName}</CardTitle>
-                    <CardSubtitle>{this.props.data.rating}</CardSubtitle>
-                    <CardSubtitle>{this.props.data.notes}</CardSubtitle>
-                    <CompletionDelete clickFunction = {this.props.clickFunction} entryId = {this.props.data.id} />
+                    <Row>
+                        <Col md='2'>
+                            <CardSubtitle>{this.props.data.movieName}</CardSubtitle>
+                        </Col>
+                        <Col md='6'>
+                            <CardSubtitle>{this.props.data.notes}</CardSubtitle>
+                        </Col>
+                        <Col md='2'>
+                            <CardSubtitle>{this.props.data.rating}</CardSubtitle>
+                        </Col>
+                        <Col md='2'>
+                            <CompletionDelete clickFunction = {this.props.clickFunction} entryId = {this.props.data.id} />
+                        </Col>
+                    </Row>
                 </CardBody>
             </Card>
         </div>

@@ -30,7 +30,7 @@ class CompletionDelete extends Component <CompletionDeleteProps, States> {
 
     render() {
         return(
-            <Button onClick={this.handleDelete}>DELETE</Button>
+            <Button color='danger' onClick={this.handleDelete}>DELETE</Button>
         )
     }
 }

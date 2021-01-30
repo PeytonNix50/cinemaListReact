@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button } from 'reactstrap';
 
+//child of App
+
 interface AuthProps {
     updateToken: (newToken: string, id: number) => any
     id: number
@@ -58,16 +60,16 @@ class Auth extends React.Component <AuthProps, States> {
             return null
         } else {
             return (
-                <div>
-                    <label>First Name: </label>
+                <div style={{border: '10px', borderColor: 'black'}}>
+                    <label style={{color: '#7a1b1f', fontWeight: 'bold'}}>First Name: </label>
                     <br/>
                     <input onChange={e => this.setState({firstName: e.target.value})}></input>
                     <br/>
-                    <label>Last Name: </label>
+                    <label style={{color: '#7a1b1f', fontWeight: 'bold'}}>Last Name: </label>
                     <br/>
                     <input onChange={e => this.setState({lastName: e.target.value})}></input>
                     <br/>
-                    <label>Username: </label>
+                    <label style={{color: '#7a1b1f', fontWeight: 'bold'}}>Username: </label>
                     <br/>
                     <input onChange={e => this.setState({username: e.target.value})}></input>
                 </div>
@@ -77,20 +79,21 @@ class Auth extends React.Component <AuthProps, States> {
 
     render(){
         return(
-            <form>
-                <h1>{ this.state.login ? 'Login' : 'Register' }</h1>
-                <label>Email: </label>
+            <form style={{width: '100%', textAlign: 'center', marginTop:'50px', backgroundColor: 'transparent'}}>
+                <h1 style={{color: '#7a1b1f', fontWeight: 'bold'}}>Welcome to CineList</h1>
+                <h4 style={{color: '#7a1b1f', fontWeight: 'bold'}}>{ this.state.login ? 'Login' : 'Register to begin!' }</h4>
+                <label style={{color: '#7a1b1f', fontWeight: 'bold'}}>Email: </label>
                 <br/>
                 <input onChange={e => this.setState({email: e.target.value})}></input>
                 <br/>
-                <label>Password: </label>
+                <label style={{color: '#7a1b1f', fontWeight: 'bold'}}>Password: </label>
                 <br/>
-                <input onChange={e => this.setState({password: e.target.value})}></input>
+                <input type='password' onChange={e => this.setState({password: e.target.value})}></input>
                 <br/>
                 {this.signupFields()}
                 <br/>
-                <Button onClick={this.loginToggle}>{this.state.login ? 'Click Here to Register' : 'Click Here to Login'}</Button>
-                <Button onClick={this.handleSubmit}>Submit</Button>
+                <Button style={{marginRight: '5px', backgroundColor:'#5f1417', borderColor: 'black'}} onClick={this.loginToggle}>{this.state.login ? 'Click Here to Register' : 'Click Here to Login'}</Button>
+                <Button style={{backgroundColor:'#5f1417', borderColor: 'black'}} onClick={this.handleSubmit}>Submit</Button>
             </form>
         )
     }

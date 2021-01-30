@@ -2,6 +2,9 @@ import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Auth from './components/Auth';
+import './App.css';
+
+//children: Auth, Navbar 
 
 interface States {
   data: any[]
@@ -55,8 +58,12 @@ planningData = async () => {
 
   render () {
     return (
-      <div>
+      <div id='appDiv'>
         { !this.state.newToken ? <Auth updateToken = {this.updateToken} id = {this.state.id} newToken = {this.state.newToken}/> : <Navbar data = {this.state.data} plan={this.state.plan} completionData = {this.completionData} planningData = {this.planningData} id = {this.state.id} newToken = {this.state.newToken} clearToken = {this.clearToken} /> }
+        <br/>
+        <footer style={{marginTop: '150px', marginLeft: '40px', color: 'white', opacity: '50%'}}>
+          <h6>CineList © Peyton Nix</h6>
+        </footer>
       </div>
     )
   }

@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import { Button } from 'reactstrap';
 
+//child of Navbar
+
 interface PlanningCreateProps {
     newToken: string | null
     clickFunction: () => any
@@ -42,19 +44,19 @@ class PlanningCreate extends Component <PlanningCreateProps, States> {
     render(){
         return(
             <form>
-                <label>Movie Name:</label>
+                <label style={{color: '#7a1b1f', fontWeight: 'bold', backgroundColor: 'black', borderRadius: '5px'}}>Movie or TV Show Name:</label>
                 <br/>
-                <input onChange={e => this.setState({movieName: e.target.value})}></input>
+                <input style={{borderRadius: '10px'}} onChange={e => this.setState({movieName: e.target.value})}></input>
                 <br/>
-                <label>Interest from:</label>
+                <label style={{color: '#7a1b1f', fontWeight: 'bold', backgroundColor: 'black', borderRadius: '5px'}}>Interest from:</label>
                 <br/>
-                <input onChange={e => this.setState({interest: e.target.value})}></input>
+                <input style={{borderRadius: '10px'}} onChange={e => this.setState({interest: e.target.value})}></input>
                 <br/>
-                <label>Progress:</label>
+                <label style={{color: '#7a1b1f', fontWeight: 'bold', borderColor: 'black', backgroundColor: 'black', borderRadius: '5px'}}>Progress:</label>
                 <br/>
-                <input type='number' onChange={e => this.setState({progress: parseInt(e.target.value)})}></input>
+                <input style={{borderRadius: '10px'}} type='number' onChange={e => this.setState({progress: parseInt(e.target.value)})}></input>
                 <br/>
-                <Button onClick={this.newPlanning}>Submit</Button>
+                <Button style={{marginTop: '10px'}} onClick={this.newPlanning} color='success'>Submit</Button>
             </form>
         )
     }

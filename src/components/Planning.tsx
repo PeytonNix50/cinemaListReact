@@ -1,8 +1,10 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 import { Card, CardText, CardBody, CardTitle, CardSubtitle, Button, Row, Col } from 'reactstrap';
-import PlanningCreate from './PlanningCreate'
 import PlanningDelete from './PlanningDelete'
+
+//child of Navbar
+//children: PlanningDelete
 
 interface PlanningProps {
     plan: any
@@ -24,10 +26,20 @@ class Planning extends React.Component <PlanningProps, {}> {
         <div>
             <Card>
                 <CardBody>
-                    <CardTitle>{this.props.plan.movieName}</CardTitle>
-                    <CardSubtitle>{this.props.plan.interest}</CardSubtitle>
-                    <CardSubtitle>{this.props.plan.progress}</CardSubtitle>
-                    <PlanningDelete clickFunction = {this.props.clickFunction} entryId = {this.props.plan.id} />
+                    <Row>
+                        <Col md='2'>
+                            <CardSubtitle>{this.props.plan.movieName}</CardSubtitle>
+                        </Col>
+                        <Col md='6'>
+                            <CardSubtitle>{this.props.plan.interest}</CardSubtitle>
+                        </Col>
+                        <Col md='2'>
+                            <CardSubtitle>{this.props.plan.progress}</CardSubtitle>
+                        </Col>  
+                        <Col md='2'>
+                            <PlanningDelete clickFunction = {this.props.clickFunction} entryId = {this.props.plan.id} />
+                        </Col>                      
+                    </Row>
                 </CardBody>
             </Card>
         </div>

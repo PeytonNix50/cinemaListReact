@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import { Button } from 'reactstrap';
 
+//child of Navbar
+
 interface CompletionCreateProps {
     newToken: string | null
     clickFunction: () => any
@@ -42,13 +44,17 @@ class CompletionCreate extends Component <CompletionCreateProps, States> {
     render(){
         return(
             <form>
-                <label>MovieName:</label>
+                <label style={{color: '#7a1b1f', fontWeight: 'bold', backgroundColor: 'black', borderRadius: '5px'}}>Movie or TV Show Name:</label>
                 <br/>
-                <input onChange={e => this.setState({movieName: e.target.value})}></input>
+                <input style={{borderRadius: '10px'}} onChange={e => this.setState({movieName: e.target.value})}></input>
                 <br/>
-                <label>Rating:</label>
+                <label style={{color: '#7a1b1f', fontWeight: 'bold', backgroundColor: 'black', borderRadius: '5px'}}>Notes:</label>
+                <br />
+                <input style={{borderRadius: '10px'}} onChange={e => this.setState({notes: e.target.value})}></input>
+                <br />
+                <label style={{color: '#7a1b1f', fontWeight: 'bold', backgroundColor: 'black', borderRadius: '5px'}}>Rating:</label>
                 <br/>
-                <select>
+                <select style={{borderRadius: '5px'}} onChange={e => this.setState({rating: parseInt(e.target.value)})}>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -56,11 +62,7 @@ class CompletionCreate extends Component <CompletionCreateProps, States> {
                     <option>5</option>
                 </select>
                 <br/>
-                <label>Notes:</label>
-                <br/>
-                <input onChange={e => this.setState({notes: e.target.value})}></input>
-                <br/>
-                <Button onClick={this.newCompletion}>Submit</Button>
+                <Button color='success' onClick={this.newCompletion} style={{marginTop: '10px'}}>Submit</Button>
             </form>
         )}
     }

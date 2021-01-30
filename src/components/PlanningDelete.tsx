@@ -30,7 +30,7 @@ class PlanningDelete extends Component <PlanningDeleteProps, States> {
 
     render() {
         return(
-            <Button onClick={this.handleDelete}>DELETE</Button>
+            <Button color='danger' onClick={this.handleDelete}>DELETE</Button>
         )
     }
 
