@@ -102,6 +102,7 @@ class Navbar extends Component <NavbarProps, States> {
                     <PlanningCreate clickFunction = {this.clickFunction} newToken = {this.props.newToken} />
                 </div> :
                 <div>
+                    <h3 style={{color: '#5f1417', textAlign: 'center', marginTop: '20px'}}>Click a User to see their CineList!</h3>
                     {this.state.userData.map((userData: userData, i: number) => <UserSearch userData = {userData} key={i} />)}
                 </div> }
             </div>

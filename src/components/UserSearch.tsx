@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 
 //child of Navbar
 //children: tbd
@@ -22,8 +23,8 @@ class UserSearch extends React.Component <UserSearchProps, States> {
 
     render() {
         return(
-            <div>
-                <h3>{this.props.userData.username}</h3>
+            <div style={{marginTop: '10px', marginLeft: '20px', textAlign: 'center'}}>
+                <Button style={{marginTop: '5px', marginBottom: '5px', backgroundColor:'#5f1417', borderColor: '#5f1417', borderRadius: '40px'}}>{this.props.userData.username}</Button>
             </div>
         )
     }
