@@ -1,6 +1,8 @@
 import React from 'react';
 import { Card, CardBody, Row, Col, CardSubtitle } from 'reactstrap'
 
+//child of UserSearch
+
 interface UsernameMapProps {
     key: number
     tObj: any

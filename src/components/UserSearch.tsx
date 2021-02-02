@@ -4,7 +4,7 @@ import UsernameMap from './UserMap'
 import UsernameMap2 from './UsernameMap2'
 
 //child of Navbar
-//children: tbd
+//children: UserMap & UsernameMap2
 
 interface UserSearchProps {
     userData: any
