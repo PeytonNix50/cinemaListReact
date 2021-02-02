@@ -1,6 +1,5 @@
-import { render } from '@testing-library/react';
 import React from 'react';
-import { Card, CardText, CardBody, CardTitle, CardSubtitle, Button, Row, Col } from 'reactstrap';
+import { Card, CardBody, CardSubtitle, Row, Col } from 'reactstrap';
 import CompletionDelete from './CompletionDelete';
 
 //child of Navbar
