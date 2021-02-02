@@ -40,6 +40,7 @@ interface States {
 
 interface userData {
     username: string
+    id: number
 }
 
 class Navbar extends Component <NavbarProps, States> {
